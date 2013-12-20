@@ -16,7 +16,6 @@ import (
     "time"
     log "github.com/zdannar/flogger"
     "github.com/zdannar/alarm"
-    "sync"
 )
 
 func main() {
@@ -28,7 +27,7 @@ func main() {
     }
 
     // NOTE: You should always have and call the cancel function
-    cancel := OnAlarm(time.Second * time.Duration(3), doStuff)
+    cancel := alarm.OnAlarm(time.Second * time.Duration(3), doStuff)
 
     log.Info("(Master routine) : Doing some things in the master routine")
     time.Sleep(time.Second * time.Duration(5))
